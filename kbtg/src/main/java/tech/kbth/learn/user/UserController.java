@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     @GetMapping("/user/{id}")
-    public UserResponse getUserBy(@PathVariable int id) {
-        return new UserResponse(id, "TEST", 30);
+    public UserResponse getUserById(@PathVariable int id) {
+        UserService userService = new UserService();
+            return userService.getInfo(id);
     }
-
 }

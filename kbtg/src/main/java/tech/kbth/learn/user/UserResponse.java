@@ -1,23 +1,9 @@
 package tech.kbth.learn.user;
 
+
 import java.util.Objects;
 
 public class UserResponse {
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserResponse that = (UserResponse) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(age, that.age);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, age);
-    }
-
     private Integer id;
     private String name;
     private Integer age;
@@ -55,4 +41,18 @@ public class UserResponse {
         this.name = name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof UserResponse)) return false;
+        UserResponse that = (UserResponse) o;
+        return Objects.equals(getId(), that.getId()) &&
+                Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getAge(), that.getAge());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getAge());
+    }
 }
